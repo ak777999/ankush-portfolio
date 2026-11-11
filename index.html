@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ankush — Portfolio</title>
+<meta name="description" content="Ankush — designer, creator, creative director. Portfolio.">
+<meta name="theme-color" content="#1133FF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231133FF'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='white' font-family='cursive'%3Ea%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="is-loading">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="distort" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="7"/>
+    <feDisplacementMap in="SourceGraphic" scale="70" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<!-- custom cursor -->
+<div class="cursor" aria-hidden="true"></div>
+
+<!-- 1. LOADER -->
+<div class="loader" id="loader" role="status" aria-live="polite">
+  <div class="loader__left" data-list="loader.left"></div>
+  <div class="loader__right" data-list="loader.right"></div>
+  <div class="loader__count"><span id="loaderNum">0</span>%</div>
+  <div class="loader__bar"><i id="loaderBar"></i></div>
+  <button class="loader__skip" id="skipBtn" type="button">SKIP ANIMATION <span aria-hidden="true">➔</span></button>
+</div>
+
+<!-- zoom (z-depth) transition overlay -->
+<div class="zoomfx" id="zoomfx" aria-hidden="true"></div>
+
+<!-- 5. BEST WORK transition overlay -->
+<div class="bwfx" id="bwfx" aria-hidden="true">
+  <svg class="bwfx__scribble" viewBox="0 0 1000 600" preserveAspectRatio="none"><path id="scribblePath" pathLength="1" d=""/></svg>
+  <div class="bwfx__pill">TARGET: BEST WORK</div>
+  <div class="bwfx__flash"></div>
+</div>
+
+<!-- floating nav -->
+<nav class="dock" id="dock" aria-label="Main">
+  <a href="#home" data-go="home" data-group="home"></a>
+  <a href="#projects" data-go="projects" data-group="projects"></a>
+  <a href="#best-work" data-go="best-work" data-group="best"></a>
+  <a href="#contact" data-go="contact" data-group="contact"></a>
+  <svg class="dock__circle" id="dockCircle" viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true">
+    <path pathLength="1" d="M150 12 C 110 2, 30 4, 12 30 C -2 52, 40 74, 100 74 C 160 74, 196 60, 190 36 C 185 14, 140 6, 92 8"/>
+  </svg>
+</nav>
+
+<main id="top">
+
+  <!-- 2 + 3. HERO -> ABOUT (zoom out) -->
+  <section class="stage" id="home">
+    <div class="stage__sticky">
+
+      <!-- ABOUT (revealed under the hero) -->
+      <div class="about" id="about">
+        <div class="about__paper">
+          <span class="tape tape--1"></span><span class="tape tape--2"></span>
+          <p class="about__kicker" data-c="about.kicker"></p>
+          <h2 class="about__statement" data-html="about.statement"></h2>
+          <p class="about__note" data-c="about.note"></p>
+          <figure class="about__photo">
+            <img data-src="about.photo" data-alt="about.photoAlt" width="864" height="1152" alt="">
+            <svg class="about__circle" viewBox="0 0 300 380" preserveAspectRatio="none" aria-hidden="true">
+              <path id="aboutCircle" pathLength="1" d="M210 22 C 130 -6, 22 30, 16 160 C 10 290, 90 372, 170 366 C 262 360, 296 270, 288 170 C 280 70, 232 22, 150 18 C 110 16, 86 26, 70 40"/>
+            </svg>
+            <figcaption>that's me, probably →</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- HERO -->
+      <div class="hero" id="hero">
+        <div class="hero__top">
+          <p class="hero__tag"><span data-c="tag.0"></span><br><span data-c="tag.1"></span></p>
+          <p class="hero__status"><i class="dot"></i><span data-c="status"></span></p>
+        </div>
+        <div class="hero__center">
+          <div class="blob" aria-hidden="true"><div class="blob__in"></div></div>
+          <h1 class="hero__logo"><span data-c="logo"></span><span class="sr-only"> — portfolio</span></h1>
+        </div>
+        <ul class="hero__roles" data-list="roles"></ul>
+        <div class="burst" aria-hidden="true">
+          <svg viewBox="0 0 240 240">
+            <defs><path id="stickerRing" d="M120 120 m-70 0 a70 70 0 1 1 140 0 a70 70 0 1 1 -140 0"/></defs>
+            <polygon id="burstPoly" points=""/>
+            <text class="burst__text"><textPath href="#stickerRing" id="stickerText"></textPath></text>
+            <circle cx="104" cy="108" r="7"/><circle cx="136" cy="108" r="7"/>
+            <path d="M98 132 Q120 156 142 132" class="burst__smile"/>
+          </svg>
+        </div>
+        <a href="#about" class="hero__hint" data-go="about"><span data-c="scrollHint"></span> <span class="arrow">↓</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PROJECTS / DATA SHEET -->
+  <section class="sheet" id="projects">
+    <div class="sheet__inner zin">
+      <div class="sheet__meta">
+        <span data-c="projectsSheet.label"></span><span>REV. 2026</span><span>LDH — IN</span>
+      </div>
+      <h2 class="sheet__title" data-c="projectsSheet.title"></h2>
+      <div class="sheet__grid">
+        <div class="sheet__script">
+          <svg class="messy" viewBox="0 0 400 220" preserveAspectRatio="none" aria-hidden="true">
+            <path pathLength="1" d="M18 24 L384 14 L392 200 L12 208 L20 30 M30 16 L376 26 L380 196"/>
+          </svg>
+          <p data-c="projectsSheet.script"></p>
+        </div>
+        <p class="sheet__body" data-c="projectsSheet.body"></p>
+        <div class="stats" id="stats"></div>
+      </div>
+      <svg class="sheet__line" viewBox="0 0 1400 160" preserveAspectRatio="none" aria-hidden="true">
+        <path id="sheetLine" pathLength="1" d="M-10 110 C 160 30, 260 150, 420 92 S 700 20, 860 96 S 1150 150, 1410 60"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 6a. TRAIN INTRO -->
+  <section class="station" id="best-work">
+    <div class="station__inner zin">
+      <p class="station__board">PLATFORM 07 &nbsp;•&nbsp; LDH</p>
+      <h2 class="station__hi" lang="hi" data-c="train.heroHi"></h2>
+      <p class="station__en" data-c="train.heroEn"></p>
+      <p class="station__sub" data-c="train.sub"></p>
+      <button class="btn-yellow" id="boardBtn" type="button"><span data-c="train.button"></span> <span aria-hidden="true">➔</span></button>
+    </div>
+  </section>
+
+  <!-- 6b. TRAIN SHOWCASE -->
+  <section class="train" id="train" aria-label="Best work">
+    <div class="train__sticky" id="trainSticky">
+      <div class="train__head">
+        <h2 class="train__title"><span data-c="train.title"></span> <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 8.7l7.1-.6z"/></svg></h2>
+        <div class="train__ctrl">
+          <span class="train__count" id="trainCount">01 / 05</span>
+          <button class="arrow-btn" id="prevBtn" type="button" aria-label="Previous coach">←</button>
+          <button class="arrow-btn" id="nextBtn" type="button" aria-label="Next coach">→</button>
+        </div>
+      </div>
+      <div class="train__world">
+        <div class="train__track" id="trainTrack"></div>
+        <div class="rails" aria-hidden="true"><i></i><i></i></div>
+      </div>
+      <p class="train__hint">scroll / swipe to ride →</p>
+    </div>
+  </section>
+
+  <!-- 7. CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact__inner zin">
+      <p class="contact__tag" data-c="contact.tagline"></p>
+      <h2 class="contact__title">
+        <span class="contact__me" data-c="contact.big"></span>
+        <span class="contact__script" data-c="contact.script"></span>
+      </h2>
+      <div class="contact__body">
+        <p data-c="contact.text"></p>
+        <a class="contact__mail" id="mailLink" href="#"></a>
+        <ul class="contact__socials" id="socials"></ul>
+      </div>
+      <p class="contact__sign" data-c="name"></p>
+      <p class="contact__foot">© <span id="year"></span> <span data-c="name"></span>. Made with chai in Ludhiana.</p>
+    </div>
+  </section>
+</main>
+
+<script src="assets/content.js"></script>
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
